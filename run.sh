@@ -11,6 +11,8 @@ hosts:
     paths:
       /:
         proxy.reverse.url: http://${!APP_ADDR}:${!APP_PORT}/
+access-log: "| cat"
+error-log: "| cat >&2"
 EOS
 
 h2o -c h2o.conf
